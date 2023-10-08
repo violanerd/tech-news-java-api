@@ -21,13 +21,16 @@ public class User implements Serializable {
     private String password;
     @Transient
     boolean loggedIn;
-    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "userId")
     private List<Post> posts;
     // Need to use FetchType.LAZY to resolve multiple bags exception
-    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "userId")
     private List<Vote> votes;
     // Need to use FetchType.LAZY to resolve multiple bags exception
-    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "userId")
     private List<Comment> comments;
 
     public User() {

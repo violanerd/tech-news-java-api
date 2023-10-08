@@ -14,7 +14,9 @@ public class Comment implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String commentText;
+
     private Integer userId;
+
     private Integer postId;
 
     public Comment() {
